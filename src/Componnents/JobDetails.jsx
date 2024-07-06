@@ -11,11 +11,11 @@ import { saveJobApplication } from "../utilities/localstorage";
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
-
+  const idInt = parseInt(id);
   const job = jobs.find((job) => job.id == id);
 
   const handleApplyJobs = ()=>{
-    saveJobApplication(id);
+    saveJobApplication(idInt);
     toast.success('You have applied successfully')
   }
 
