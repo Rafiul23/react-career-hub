@@ -8,6 +8,8 @@ const AppliedJobs = () => {
   const jobs = useLoaderData();
 
   const [appliedJobs, setAppliedJobs] = useState([]);
+  const [displayJobs, setDisplayJobs] = useState([]);
+
 
   useEffect(() => {
     const storedJobIds = getSaveJobApplication();
@@ -25,8 +27,21 @@ const AppliedJobs = () => {
     }
 
     setAppliedJobs(jobsApplied);
-    console.log(storedJobIds, jobs, jobsApplied);
-  }, []);
+    setDisplayJobs(jobsApplied);
+    
+  }, [jobs]);
+
+  const handleJobsFilter = filter =>{
+    if(filter === 'all'){
+        setDisplayJobs(appliedJobs)
+    } else if (filter === 'remote'){
+        const remoteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Remote');
+        setDisplayJobs(remoteJobs);
+    } else if (filter === 'on-site'){
+        const onSiteJobs = appliedJobs.filter(job => job.remote_or_onsite === 'Onsite');
+        setDisplayJobs(onSiteJobs);
+    }
+  }
 
   return (
     <div>
@@ -45,10 +60,13 @@ const AppliedJobs = () => {
         <details className="dropdown">
           <summary className="px-5 border border-violet-600 py-2 font-extrabold text-violet-600 rounded-md m-1">Filter By</summary>
           <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-            <li>
+            <li onClick={()=>handleJobsFilter('all')}>
+              <a>All</a>
+            </li>
+            <li onClick={()=> handleJobsFilter('on-site')}>
               <a>On Site</a>
             </li>
-            <li>
+            <li onClick={()=> handleJobsFilter('remote')}>
               <a>Remote</a>
             </li>
           </ul>
@@ -57,7 +75,7 @@ const AppliedJobs = () => {
       </div>
 
       <div className="grid grid-cols-1 gap-4 my-10">
-        {appliedJobs.map((job) => (
+        {displayJobs.map((job) => (
           <AppliedJobsCard key={job.id} job={job}></AppliedJobsCard>
         ))}
       </div>
