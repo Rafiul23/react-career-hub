@@ -13,7 +13,8 @@ import Blogs from './Componnents/Blogs';
 import Statistics from './Componnents/Statistics';
 import ErrorPage from './Componnents/ErrorPage';
 import JobDetails from './Componnents/JobDetails';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     
     <RouterProvider router={router}></RouterProvider>
-   
+    <ToastContainer></ToastContainer>
   </React.StrictMode>,
 )

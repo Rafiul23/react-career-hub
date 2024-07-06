@@ -5,12 +5,19 @@ import titleIcon from '../assets/icons/calendar.png'
 import phoneIcon from '../assets/icons/phone.png';
 import emailIcon from '../assets/icons/email.png';
 import addressIcon from '../assets/icons/location2.png'
+import { toast } from "react-toastify";
+import { saveJobApplication } from "../utilities/localstorage";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
   const { id } = useParams();
 
   const job = jobs.find((job) => job.id == id);
+
+  const handleApplyJobs = ()=>{
+    saveJobApplication(id);
+    toast.success('You have applied successfully')
+  }
 
   const {
     logo,
@@ -91,7 +98,7 @@ const JobDetails = () => {
 
             </div>
           </div>
-          <button className="btn btn-primary my-4 w-full">Apply Now</button>
+          <button onClick={handleApplyJobs} className="btn btn-primary my-4 w-full">Apply Now</button>
         </div>
       </div>
     </div>
