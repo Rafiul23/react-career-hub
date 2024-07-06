@@ -4,11 +4,31 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
 
     const links = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/jobs'>Jobs</NavLink></li>
-        <li><NavLink to='/appliedjobs'>Applied Jobs</NavLink></li>
-        <li><NavLink to='/blogs'>Blogs</NavLink></li>
-        <li><NavLink to='/statistics'>Statistics</NavLink></li>
+        <li className="ml-3 text-violet-600"><NavLink to='/' 
+        className={({ isActive, isPending }) => {
+            return isActive ? "font-bold underline" : isPending ? "pending" : "";
+          }}
+        >Home</NavLink></li>
+        <li className="ml-3 text-violet-600"><NavLink to='/jobs'
+        className={({ isActive, isPending }) => {
+            return isActive ? "font-bold underline" : isPending ? "pending" : "";
+          }}
+        >Jobs</NavLink></li>
+        <li className="ml-3 text-violet-600"><NavLink to='/appliedjobs'
+        className={({ isActive, isPending }) => {
+            return isActive ? "font-bold underline" : isPending ? "pending" : "";
+          }}
+        >Applied Jobs</NavLink></li>
+        <li className="ml-3 text-violet-600"><NavLink to='/blogs'
+        className={({ isActive, isPending }) => {
+            return isActive ? "font-bold underline" : isPending ? "pending" : "";
+          }}
+        >Blogs</NavLink></li>
+        <li className="ml-3 text-violet-600"><NavLink to='/statistics'
+        className={({ isActive, isPending }) => {
+            return isActive ? "font-bold underline" : isPending ? "pending" : "";
+          }}
+        >Statistics</NavLink></li>
     </>
 
     return (
@@ -23,15 +43,15 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">Carrer-Hub</a>
+                    <a className=" normal-case text-2xl text-violet-600">Carrer-Hub</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                    <ul className="menu-horizontal px-1">
                        {links}
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Button</a>
+                    <a className="btn btn-outline">Button</a>
                 </div>
             </div>
         </div>
