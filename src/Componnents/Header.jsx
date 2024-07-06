@@ -1,30 +1,31 @@
 import { NavLink } from "react-router-dom";
+import logo from '../assets/logo/CareerHub.png'
 
 
 const Header = () => {
 
     const links = <>
-        <li className="ml-3 text-violet-600"><NavLink to='/' 
+        <li className=" text-violet-600"><NavLink to='/' 
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
         >Home</NavLink></li>
-        <li className="ml-3 text-violet-600"><NavLink to='/jobs'
+        <li className="ml-5 text-violet-600"><NavLink to='/jobs'
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
         >Jobs</NavLink></li>
-        <li className="ml-3 text-violet-600"><NavLink to='/appliedjobs'
+        <li className="ml-5 text-violet-600"><NavLink to='/appliedjobs'
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
         >Applied Jobs</NavLink></li>
-        <li className="ml-3 text-violet-600"><NavLink to='/blogs'
+        <li className="ml-5 text-violet-600"><NavLink to='/blogs'
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
         >Blogs</NavLink></li>
-        <li className="ml-3 text-violet-600"><NavLink to='/statistics'
+        <li className="ml-5 text-violet-600"><NavLink to='/statistics'
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
@@ -43,7 +44,7 @@ const Header = () => {
                             {links}
                         </ul>
                     </div>
-                    <a className=" normal-case text-2xl text-violet-600">Carrer-Hub</a>
+                    <img src={logo} alt="logo" />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu-horizontal px-1">
