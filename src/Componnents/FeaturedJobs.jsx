@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import location from '../assets/icons/location2.png'
-import salary from '../assets/icons/money.png';
+import JobCard from "./JobCard";
 
 const FeaturedJobs = () => {
 
     const [featuredJobs, setFeaturedJobs] = useState([]);
+    const [dataLength, setDataLength] = useState(4);
 
     useEffect(()=>{
         fetch('/data/jobs.json')
@@ -21,29 +21,21 @@ const FeaturedJobs = () => {
         </p>
       </div>
 
-      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 my-5 max-w-5xl mx-auto">
+      <div className="grid md:grid-cols-2 grid-cols-1 gap-4 my-5 mx-auto">
             {
-                featuredJobs.map(job => <div key={job.id} className="p-5">
-                    <img src={job.logo} alt="logo" />
-                    <h3 className="text-xl font bold py-2">{job.job_title}</h3>
-                    <p>{job.company_name}</p>
-                    <div className="flex py-2">
-                    <button className="btn btn-primary btn-outline">{job.remote_or_onsite}</button>
-                    <button className="btn btn-primary btn-outline ml-3">{job.job_type}</button>
-                    </div>
-                    <div className="flex my-4">
-                        <div className="flex">
-                            <img src={location} alt="location" />
-                            <p>{job.location}</p>
-                        </div>
-                        <div className="flex ml-3">
-                            <img src={salary} alt="salary" />
-                            <p>{job.salary}</p>
-                        </div>
-                    </div>
-                    <button className="btn btn-primary">View Details</button>
-                </div>)
+                featuredJobs.slice(0, dataLength).map(job => <JobCard key={job.id} 
+                job={job}
+                ></JobCard>)
             }
+      </div>
+
+      <div className="text-center my-5">
+       {
+        dataLength === featuredJobs.length ?
+        <button className="btn btn-primary" onClick={()=> setDataLength(4)}>Show Less Jobs</button>
+        : 
+        <button className="btn btn-primary" onClick={()=> setDataLength(featuredJobs.length)}>Show All Jobs</button>
+       }
       </div>
     </div>
   );
