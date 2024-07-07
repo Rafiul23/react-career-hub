@@ -20,7 +20,8 @@ const Header = () => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
         >Applied Jobs</NavLink></li>
-        <li className="ml-5 text-violet-600"><NavLink to='/blogs'
+
+        {/* <li className="ml-5 text-violet-600"><NavLink to='/blogs'
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
@@ -29,7 +30,7 @@ const Header = () => {
         className={({ isActive, isPending }) => {
             return isActive ? "font-bold underline" : isPending ? "pending" : "";
           }}
-        >Statistics</NavLink></li>
+        >Statistics</NavLink></li> */}
     </>
 
     return (
