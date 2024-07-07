@@ -11,7 +11,7 @@ const CategoryList = () => {
 
   return (
     <div className="my-10">
-      <h1 className="text-5xl text-center">Job Category List</h1>
+      <h1 className="md:text-5xl text-2xl text-center">Job Category List</h1>
       <p className="text-center py-3">
         Explore thousands of job opportunities with all the information you
         need. Its your future

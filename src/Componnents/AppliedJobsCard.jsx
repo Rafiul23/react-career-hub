@@ -15,11 +15,11 @@ const AppliedJobsCard = ({ job }) => {
   } = job;
 
   return (
-    <div className="flex justify-between gap-4 border-2">
-      <div className="w-1/3 flex justify-center items-center">
+    <div className="flex md:flex-row flex-col  justify-between gap-4 border-2">
+      <div className="md:w-1/3 w-full p-2 flex justify-center items-center">
         <img src={logo} className="w-1/2 h-1/2" alt="logo" />
       </div>
-      <div className="w-1/3">
+      <div className="md:w-1/3 w-full p-2">
         <h3 className="text-xl font bold py-2">{job_title}</h3>
         <p>{company_name}</p>
         <div className="flex py-2">
@@ -41,7 +41,7 @@ const AppliedJobsCard = ({ job }) => {
           </div>
         </div>
       </div>
-      <div className="w-1/3 flex justify-center items-center">
+      <div className="md:w-1/3 w-full p-2 flex justify-center items-center">
         <Link to={`/job/${id}`}>
           <button className="btn btn-primary">View Details</button>
         </Link>

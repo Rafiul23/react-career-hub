@@ -48,7 +48,7 @@ const JobDetails = () => {
         </h2>
       </div>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-4 my-16">
-        <div className="col-span-2">
+        <div className="col-span-2 p-2">
           <p className="py-6">
             <span className="font-bold">Job Description: </span>
             {job_description}
