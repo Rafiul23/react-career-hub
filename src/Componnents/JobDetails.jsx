@@ -7,6 +7,7 @@ import emailIcon from '../assets/icons/email.png';
 import addressIcon from '../assets/icons/location2.png'
 import { toast } from "react-toastify";
 import { saveJobApplication } from "../utilities/localstorage";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
   const jobs = useLoaderData();
@@ -36,6 +37,9 @@ const JobDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Career Hub | Job Details</title>
+      </Helmet>
       <div
         className="min-h-[200px]"
         style={{

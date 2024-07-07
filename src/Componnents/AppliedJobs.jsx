@@ -3,6 +3,7 @@ import BG_1 from "../assets/images/bg1.png";
 import { useEffect, useState } from "react";
 import { getSaveJobApplication } from "../utilities/localstorage";
 import AppliedJobsCard from "./AppliedJobsCard";
+import { Helmet } from "react-helmet-async";
 
 const AppliedJobs = () => {
   const jobs = useLoaderData();
@@ -45,6 +46,9 @@ const AppliedJobs = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Career Hub | Applied Jobs</title>
+      </Helmet>
       <div
         className="min-h-[200px]"
         style={{
